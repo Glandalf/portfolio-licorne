@@ -19,12 +19,18 @@
     </section>
 
     <section id="projects" class="page">
-        <h2>Réalisations</h2>
-        <ul>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
+        <h2 class="h2">Réalisations</h2>
+        <ul class="projects-list">
+            <li class="project"><img src="" alt="projet 1"></li>
+            <li class="project"><img src="" alt="coucou"></li>
+            <li class="project"><img src="" alt="ekdjrghs;ekr  hserkjg hsekrjg"></li>
+            <li class="project"><img src="" alt="rthedrt "></li>
+            <li class="project"><img src="" alt="coucou"></li>
+            <li class="project"><img src="" alt="ekdjrghs;ekr  hserkjg hsekrjg"></li>
+            <li class="project"><img src="" alt="rthedrt "></li>
+            <li class="project"><img src="" alt="coucou"></li>
+            <li class="project"><img src="" alt="ekdjrghs;ekr  hserkjg hsekrjg"></li>
+            <li class="project"><img src="" alt="rthedrt "></li>
         </ul>
     </section>
 
@@ -60,6 +66,25 @@
     </section>
 
     <!-- TODO : faire le footer -->
-    
+    <script>
+        const projectsList = document.querySelector('.projects-list');
+        // Si on veut avoir un effet excentré
+        // Si on veut centrer notre caroussel
+        // projectsList.scrollLeft = projectTileWidth / 2 + 30;
+
+        initSlider();
+
+        function slideRight() {
+            let projectTileWidth = document.querySelector('.project').getBoundingClientRect().width;
+            projectsList.scrollTo({left: projectsList.scrollLeft + projectTileWidth + 60});
+        }
+        
+        function initSlider() {
+            projectsList.addEventListener('click', slideRight)
+            projectsList.scrollLeft = document.querySelector('.project').getBoundingClientRect().width - 80;
+        }
+        
+
+    </script>
 </body>
 </html>
