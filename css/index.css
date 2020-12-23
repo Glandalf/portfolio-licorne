@@ -1,0 +1,85 @@
+/* fonte avec serifs utilisée dans la majorité du site */
+@import url('https://fonts.googleapis.com/css2?family=Rosarivo&display=swap');
+
+:root {
+    /* CSS HEX */
+    --color-space-cadet: #22223bff;
+    --color-independence: #4a4e69ff;
+    --color-heliotrope-gray: #9a8c98ff;
+    --color-silver-pink: #c9ada7ff;
+    --color-isabelline: #f2e9e4ff;
+}
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+html, body {
+    min-height: 100vh;
+    background: var(--color-isabelline);
+    font-size: 16px;
+}
+
+#welcome {
+    /* j'aime bien faire ça à chaque fois que j'ai une section
+    cela permet de rendre un peu indépendant le CSS des éléments
+    qui vont s'y trouver (en terme de positionnement surtout) */
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#welcome .col {
+    width: 50vw;
+    text-align: center;
+}
+
+#welcome .h1 {
+    font-family: Rosarivo;
+    font-size: 44px;
+    line-height: 62px;
+    text-align: center;
+    color: var(--color-space-cadet);
+}
+#welcome .h2 {
+    font-family: Rosarivo;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    color: var(--color-silver-pink);
+}
+
+#welcome .photo {
+    /* Dimensionnement "non responsive" :
+    width: 320px;
+    height: 320px; */
+    /* Dimensionnement basé sur la largeur de notre fenêtre (30%) */
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, .25);
+    background: #FF9AE6;
+}
+
+@media (max-width: 20cm) {
+    #welcome {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    #welcome .col {
+        width: 100vw !important;
+    }
+
+    #welcome .photo {
+        width: 60vw;
+        height: 60vw;
+        margin-bottom: 100px;
+    }
+
+}
