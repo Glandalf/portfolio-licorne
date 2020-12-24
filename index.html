@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glandalf's portfolio</title>
     <link rel="stylesheet" href="./css/index.css">
+
+    <script defer src="./js/caroussel.js"></script>
+    <script defer src="./js/form.js"></script>
+    <script defer src="./js/eyeligther.js"></script>
+    <script defer src="./js/main.js"></script>
 </head>
 <body>
 
@@ -65,26 +70,31 @@
         </ul>
     </section>
 
-    <!-- TODO : faire le footer -->
-    <script>
-        const projectsList = document.querySelector('.projects-list');
-        // Si on veut avoir un effet excentré
-        // Si on veut centrer notre caroussel
-        // projectsList.scrollLeft = projectTileWidth / 2 + 30;
+    <section id="contact" class="page">
+        <h2 class="h2">Me contacter</h2>
+        <div class="flex">
+            <p class="secondary-content description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sed dolorem iste sunt vero distinctio reprehenderit? Officia alias quidem, omnis molestiae, quam commodi, eos enim aut nesciunt corrupti laboriosam voluptatibus.</p>
+            <form class="form">
+                <label class="label" for="field-qui">Qui etes-vous ?</label>
+                <input placeholder="Votre nom" class="field" id="field-qui" name="qui" type="text">
+                
+                <label class="label" for="field-objet">Adresse de contact</label>
+                <input placeholder="Objet du message" class="field" id="field-objet" name="objet" type="mail">
 
-        initSlider();
+                <label class="label" for="field-objet">Objet</label>
+                <input placeholder="Objet du message" class="field" id="field-objet" name="objet" type="text">
+                
+                <label class="label" for="field-message">Votre message</label>
+                <textarea placeholder="Contenu" class="field" id="field-message" name="message"></textarea>
+                
+                <button id="send-message" class="cta button">Envoyer</button>
+            </form>
+        </div>
 
-        function slideRight() {
-            let projectTileWidth = document.querySelector('.project').getBoundingClientRect().width;
-            projectsList.scrollTo({left: projectsList.scrollLeft + projectTileWidth + 60});
-        }
-        
-        function initSlider() {
-            projectsList.addEventListener('click', slideRight)
-            projectsList.scrollLeft = document.querySelector('.project').getBoundingClientRect().width - 80;
-        }
-        
+        <img class="moon secondary-content" src="./assets/moon.svg" alt="ze moon">
+        <img class="back mountain" src="./assets/mountain-back.svg" alt="mountain back illustration">
+        <img class="front mountain" src="./assets/mountain-front.svg" alt="mountain front illustration">
+    </section>
 
-    </script>
 </body>
 </html>

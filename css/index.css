@@ -1,5 +1,6 @@
 /* fonte avec serifs utilisée dans la majorité du site */
 @import url('https://fonts.googleapis.com/css2?family=Rosarivo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose&display=swap');
 
 :root {
     /* CSS HEX */
@@ -22,17 +23,51 @@
 html, body {
     min-height: 100vh;
     background: var(--color-isabelline);
-    font-size: 16px;
+    font-size: 2.5vw;
 }
-
+.h1 {
+    font-size: 1.9em;
+}
 .h2 {
     font-family: Rosarivo;
-    font-size: 44px;
+    font-size: 1.9em;
     line-height: 62px;
+}
+.page {
+    position: relative;
+    font-size: min(1em, 30px);
 }
 .page .h2 {
     padding: 60px;
 }
+
+.flex {
+    display: flex;
+}
+
+.field,
+.button {
+    font-size: 1em;
+    padding: 15px;
+    border-radius: 6px;
+    width: 300px;
+}
+.field {
+    height: 1em;
+    color: var(--color-space-cadet);
+}
+textarea.field {
+    /* On spécifie la hauteur d'une ligne, 
+    puis on prévoit la place pour 4 fois cette hauteur */
+    line-height: 1.2em;
+    height: calc(4 * 1.2em);
+}
+.button {
+    color: var(--color-isabelline);
+    background: var(--color-space-cadet);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+
 
 
 
@@ -53,13 +88,13 @@ html, body {
 
 #welcome .h1 {
     font-family: Rosarivo;
-    font-size: 44px;
+    /* font-size: 44px; */
     line-height: 62px;
     text-align: center;
     color: var(--color-space-cadet);
 }
 #welcome .h2 {
-    font-size: 26px;
+    font-size: 1em;
     text-align: center;
     color: var(--color-silver-pink);
 }
@@ -110,10 +145,105 @@ html, body {
 }
 
 
+#contact {
+    background: var(--color-independence);
+    padding: 0 0 calc(20vw) 0;
+    overflow: hidden;
+}
+#contact .flex {
+    padding: 0 60px;
+}
+#contact .h2,
+#contact .description,
+#contact .label {
+    color: var(--color-isabelline);
+}
+#contact .description {
+    width: calc(35vw - 0px);
+    margin-right: 60px;
+    line-height: 1.25em
+}
+
+#contact .form {
+    /* max-width: 800px; */
+    max-width: 1000px;
+    width: calc(100% - 400px - 60px);
+}
 
 
+#contact .form > * {
+    display: block;
+}
+
+#contact .description,
+#contact .form
+{
+    font-family: 'Red Rose', cursive;
+    z-index: 9;
+}
+#contact .moon {
+    position: absolute;
+    top: 50vh;
+    left: 10vw;
+}
+
+#contact .field {
+    width: calc(100% - 30px);
+    margin-bottom: 47px;
+    background: rgba(255, 255, 255, .5);
+    transition: all 1.5s ease;
+}
+#contact .field:focus {
+    background: rgba(255, 255, 255, .9);
+    transition: all .3s ease;
+}
+#contact .label {
+    margin-bottom: 15px;
+}
+
+#contact .mountain {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    transition: bottom .3s normal;
+}
+#contact .back.mountain {
+    filter: blur(5px);
+}
+#contact .front.mountain {
+    position: 100vw;
+}
+#contact .cloud {
+    animation-name: float;
+    /* animation-timing-function: linear; */
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes float {
+    0% { margin-top: 0px }
+    100% { margin-top: 30px }
+}
+
+/* TODO : responsiver le formulaire de contact */
+
+@media (max-width: 900px) {
+    .secondary-content {
+        display: none;
+    }
+    #contact .form {
+        width: 100%;
+    }
+    #contact .field {
+        background: rgba(255, 255, 255, .9);
+    }
+}
 
 @media (max-width: 20cm) {
+    html, body {
+        font-size: 5vw;
+    }
     #welcome {
         flex-wrap: wrap;
         flex-direction: column-reverse;
